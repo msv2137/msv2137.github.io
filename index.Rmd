@@ -1,0 +1,12 @@
+---
+title: "Malvika's Website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# This is Malvika's awesome website
+
+![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
