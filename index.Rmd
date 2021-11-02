@@ -10,3 +10,8 @@ output:
 # Welcome to Malvika's Website!
 
 ![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+## Links
+
+* [Github](https://github.com/msv2137)
+* [Email](msv2137@cumc.columbia.edu)
+* [LinkedIn](linkedin.com/in/malvikavenkataraman/)
