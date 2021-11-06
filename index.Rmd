@@ -1,12 +1,13 @@
 ---
 title: "Malvika's Website"
+author: "Malvika Venkataraman"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-# Welcome to Malvika's Website!
+# Welcome to Malvika's Website Landing Page!
 
 ![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
-
+In this website I have included an outline of my academic and professional experience, as well as a dashboard
