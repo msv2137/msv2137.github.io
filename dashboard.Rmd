@@ -64,14 +64,14 @@ weather_df %>%
 ```
 
 
-### Maximum Temperature Overtime per Weather Station
+### Maximum Temperature Over Time per Weather Station
 ```{r, echo=FALSE}
 weather_df_plot = weather_df %>%
   ggplot(aes(x = date, y = tmax, color = name)) + 
   geom_point(alpha = .5) +
   geom_smooth(se = FALSE) + 
   facet_wrap(. ~ name) +
-  labs(title = "Maximum Temperature Overtime per Weather Station", 
+  labs(title = "Maximum Temperature Over Time per Weather Station", 
        x = "Date", 
        y = "Maximum Daily Temperature (C)") + 
   scale_color_discrete(name = "Weather Station") +
