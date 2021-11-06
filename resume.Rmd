@@ -6,12 +6,40 @@ output:
     toc_float: true
 ---
 
-# Resume
+### EDUCATION 	
+* *Columbia University*, Mailman School of Public Health, MS Biostatistics                
 
-This is my resume
+* *University of Virginia*, BA Statistics, Public Health                            
 
-## Links
+### SKILLS & CERTIFICATIONS	 
+* Skills: MS Excel, PowerPoint and Word
+* Programming Languages & Statistical Applications: R, Python, SQL, SAS, Tableau, SPSS
+Data Science Skills: Data Preparation, Data Transformation, Data Visualization, Data Mining, Statistical Analysis & Modeling, Machine Learning, MLOps, Deep Learning, and Cloud Computing
+* Certifications: Agile Methodology, HIPAA
 
-* [Github](https://github.com/msv2137)
-* [Email](mailto:msv2137@cumc.columbia.edu)
-* [LinkedIn](https://www.linkedin.com/in/malvikavenkataraman/) 
+### WORK EXPERIENCE
+**_Data Analyst Consultant_, Booz Allen Hamilton**, (Jan 2021 - present)
+
+* Developing analytical solutions to accelerate life sciences research 
+
+* Expanding AWS-based repository for anonymized data (184+ studies) and biospecimens, to maximize data reuse (53+ secondary publications) and support the scientific community funded by a leading national research agency
+
+**_Data Science Intern _, Logistics Capital and Strategy**, (May 2020- Aug 2020)
+
+* Created a business specific monthly revenue forecasting model to address post-COVID growth strategy for $2B client
+
+* Built a pipeline forecast in Python and designed interactive Tableau dashboards to present insights to client CEO & CFO
+
+### RESEARCH EXPERIENCE
+**_Research Assistant_, UVA Center for Public Health Genomics**, (Sep 2019- Dec 2020)
+
+* Performed data driven research in complex trait genetics for both human and experimental populations
+
+* Conducted genome-wide association mapping of cardiovascular and pulmonary diseases in R, running on UVA’s High-Performance Cloud System (Unix OS, Slurm)
+
+**_Colorado Summer Institute in Biostatistics_**, (June 2019- July 2019)
+
+* Utilized current biostatistical practices and its applications to healthcare, in NIH funded research program
+
+* Collaborated with clinicians and biostatisticians in a team at the Colorado Children’s Hospital to analyze particulate matter and its association in asthma outcomes
+
