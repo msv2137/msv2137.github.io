@@ -1,6 +1,6 @@
 ---
 title: "Flex Dashboard"
-author: "Malvika Venkataraman"
+output: 
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
@@ -15,7 +15,7 @@ library(plotly)
 ```
 
 # Data
-```{r}
+```{r data}
 weather_df = 
   rnoaa::meteo_pull_monitors(
     c("USW00094728", "USC00519397", "USS0023B17S"),
