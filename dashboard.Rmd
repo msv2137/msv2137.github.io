@@ -31,7 +31,7 @@ weather_df =
     mutate(prcp = prcp/10) %>%
  select(name, id, everything())
     
-View(weather_df)
+#View(weather_df)
 ```
 
 ### Daily Recorded Precipitation by Weather Station
