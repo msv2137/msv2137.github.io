@@ -4,15 +4,11 @@ output:
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
 ---
 
 # Resume
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
-
-## Resume
-
+This is my resume
 
 ## Links
 

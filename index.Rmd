@@ -4,18 +4,9 @@ output:
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
 ---
 
 # Welcome to Malvika's Website!
 
 ![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
 
-## Resume
-
-
-## Links
-
-* [Github](https://github.com/msv2137)
-* [Email](mailto:msv2137@cumc.columbia.edu)
-* [LinkedIn](https://www.linkedin.com/in/malvikavenkataraman/) 
