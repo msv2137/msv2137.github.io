@@ -13,8 +13,9 @@ library(tidyverse)
 library(plotly)
 ```
 
-# Data
 ```{r data, include=FALSE}
+#don't include code chunk in dashboard
+#read in and clean data
 weather_df = 
   rnoaa::meteo_pull_monitors(
     c("USW00094728", "USC00519397", "USS0023B17S"),
@@ -31,7 +32,8 @@ weather_df =
     tmax = tmax / 10) %>%
     mutate(prcp = prcp/10) %>%
  select(name, id, everything())
-    
+
+#view completed
 #View(weather_df)
 ```
 
@@ -40,10 +42,14 @@ Column
 
 ### Daily Recorded Precipitation by Weather Station
 ```{r, echo=FALSE}
+#don't include code chunk in dashboard
 weather_df %>%
- mutate(name = forcats::fct_relevel(name, c("Waikiki_HA", "CentralPark_NY", "Waterhole_WA"))) %>%
+ mutate(name = forcats::fct_relevel(name, c("Waikiki_HA", 
+                                            "CentralPark_NY", "Waterhole_WA"))) %>%
   plot_ly(color = ~ name, y = ~prcp, type = "violin", colors = "viridis") %>%
-  layout(title = "Daily Recorded Precipitation by Weather Station" , xaxis = list(title = "Location"), yaxis = list(title = "Precipitation (cm)"))
+  layout(title = "Daily Recorded Precipitation by Weather Station", 
+         xaxis = list(title = "Location"), 
+         yaxis = list(title = "Precipitation (cm)"))
 ```
 
 Column {.tabset}
@@ -51,32 +57,49 @@ Column {.tabset}
 
 ### Total Monthly Precipitation in Waikiki
 ```{r, echo=FALSE}
+#don't include code chunk in dashboard
 weather_df %>%
   separate(date, into = c("year", "month", "day"), sep = "-") %>%
   drop_na(prcp) %>%
   filter(name == "Waikiki_HA") %>%
-  mutate(month = recode_factor(month, "01" = "January", "02" = "February", "03" = "March", "04" = "April", "05" = "May", "06" = "June", "07" = "July", "08" = "August", "09" = "September", "10" = "October", "11" = "November", "12" = "December")) %>%
+  mutate(month = recode_factor(month, 
+                               "01" = "January", 
+                               "02" = "February", 
+                               "03" = "March", 
+                               "04" = "April", 
+                               "05" = "May", 
+                               "06" = "June", 
+                               "07" = "July", 
+                               "08" = "August", 
+                               "09" = "September", 
+                               "10" = "October", 
+                               "11" = "November", 
+                               "12" = "December")) %>%
   group_by(name, month) %>%
   summarise(total_precip = sum(prcp)) %>%
-  do(p=plot_ly(., x = ~month, y = ~total_precip, color = ~month, type = "bar", colors = "magma")) %>%
+  do(p = plot_ly(., x = ~month, y = ~total_precip, 
+               color = ~month, type = "bar", colors = "magma")) %>%
   subplot(nrows = 1, shareX = TRUE, shareY = TRUE) %>%
-  layout(title = "Total Monthly Precipitation in Waikiki, HI", xaxis = list(title = "Month"), yaxis = list(title = "Precipitation (cm)"))
+  layout(title = "Total Monthly Precipitation in Waikiki, HI", 
+         xaxis = list(title = "Month"), 
+         yaxis = list(title = "Precipitation (cm)"))
 ```
 
 
-### Maximum Temperature Over Time per Weather Station
+### Minimum Temperature Over Time per Weather Station
 ```{r, echo=FALSE}
+#don't include code chunk in dashboard
 weather_df_plot = weather_df %>%
-  ggplot(aes(x = date, y = tmax, color = name)) + 
+  ggplot(aes(x = date, y = tmin, color = name)) + 
   geom_point(alpha = .5) +
   geom_smooth(se = FALSE) + 
   facet_wrap(. ~ name) +
-  labs(title = "Maximum Temperature Over Time per Weather Station", 
+  labs(title = "Minimum Temperature Over Time per Weather Station", 
        x = "Date", 
-       y = "Maximum Daily Temperature (C)") + 
+       y = "Minimum Daily Temperature (C)") + 
   scale_color_discrete(name = "Weather Station") +
   theme(axis.text.x = element_text(angle = 90))
 
-ggplotly(weather_df_plot)
+ggplotly(weather_df_plot) #use ggplotly on ggplot code to turn into plotly
 ```
 
