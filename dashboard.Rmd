@@ -1,7 +1,9 @@
 ---
 title: "Flex Dashboard"
 author: "Malvika Venkataraman"
-output: html_document
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
 ```{r setup, include=FALSE}
@@ -34,6 +36,9 @@ weather_df =
 #View(weather_df)
 ```
 
+Column {data-width=650}
+-----------------------------------------------------------------------
+
 ### Daily Recorded Precipitation by Weather Station
 ```{r}
 weather_df %>%
@@ -41,6 +46,9 @@ weather_df %>%
   plot_ly(color = ~ name, y = ~prcp, type = "violin", colors = "viridis") %>%
   layout(title = "Daily Recorded Precipitation by Weather Station" , xaxis = list(title = "Location"), yaxis = list(title = "Precipitation (cm)"))
 ```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
 
 ### Total Monthly Precipitation in Waikiki
 ```{r}
@@ -55,6 +63,8 @@ weather_df %>%
   subplot(nrows = 1, shareX = TRUE, shareY = TRUE) %>%
   layout(title = "Total Monthly Precipitation in Waikiki, HI", xaxis = list(title = "Month"), yaxis = list(title = "Precipitation (cm)"))
 ```
+
+
 ### Maximum Temperature Overtime per Weather Station
 ```{r}
 weather_df_plot = weather_df %>%
