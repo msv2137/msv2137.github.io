@@ -28,8 +28,25 @@ weather_df =
       USS0023B17S = "Waterhole_WA"),
     tmin = tmin / 10,
     tmax = tmax / 10) %>%
+    mutate(prcp = prcp/10) %>%
  select(name, id, everything())
     
 View(weather_df)
 ```
+
+
+```{r}
+weather_df %>% 
+  ggplot(aes(x = tmin, y = tmax)) + 
+  geom_point(aes(color = name), alpha = .5)
+```
+
+
+```{r}
+weather_df %>%
+ mutate(name = forcats::fct_relevel(name, c("Waikiki_HA", "CentralPark_NY", "Waterhole_WA"))) %>%
+  plot_ly(color = ~ name, y = ~prcp, type = "violin", colors = "viridis") %>%
+  layout(title = "Daily Recorded Precipitation by Weather Station" , xaxis = list(title = "Location"), yaxis = list(title = "Precipitation (cm)"))
+```
+
 
