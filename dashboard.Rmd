@@ -63,4 +63,18 @@ weather_df %>%
   layout(title = "Total Precipitation per Month in Waikiki, HI", xaxis = list(title = "Month"), yaxis = list(title = "Precipitation (cm)"))
 ```
 
+```{r}
+weather_df_plot = weather_df %>%
+  ggplot(aes(x = date, y = tmax, color = name)) + 
+  geom_point(alpha = .5) +
+  geom_smooth(se = FALSE) + 
+  facet_wrap(. ~ name) +
+  labs(title = "Maximum Temperature Over The Year Per Weather Station", 
+       x = "Date", 
+       y = "Maximum Daily Temperature (C)") + 
+  scale_color_discrete(name = "Weather Station") +
+  theme(axis.text.x = element_text(angle = 90))
+
+ggplotly(weather_df_plot)
+```
 
