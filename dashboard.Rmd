@@ -3,7 +3,6 @@ title: "Flex Dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
-    vertical_layout: fill
 ---
 
 ```{r setup, include=FALSE}
@@ -15,7 +14,7 @@ library(plotly)
 ```
 
 # Data
-```{r data}
+```{r data, include=FALSE}
 weather_df = 
   rnoaa::meteo_pull_monitors(
     c("USW00094728", "USC00519397", "USS0023B17S"),
@@ -36,22 +35,22 @@ weather_df =
 #View(weather_df)
 ```
 
-Column {data-width=650}
+Column
 -----------------------------------------------------------------------
 
 ### Daily Recorded Precipitation by Weather Station
-```{r}
+```{r, echo=FALSE}
 weather_df %>%
  mutate(name = forcats::fct_relevel(name, c("Waikiki_HA", "CentralPark_NY", "Waterhole_WA"))) %>%
   plot_ly(color = ~ name, y = ~prcp, type = "violin", colors = "viridis") %>%
   layout(title = "Daily Recorded Precipitation by Weather Station" , xaxis = list(title = "Location"), yaxis = list(title = "Precipitation (cm)"))
 ```
 
-Column {data-width=350}
+Column {.tabset}
 -----------------------------------------------------------------------
 
 ### Total Monthly Precipitation in Waikiki
-```{r}
+```{r, echo=FALSE}
 weather_df %>%
   separate(date, into = c("year", "month", "day"), sep = "-") %>%
   drop_na(prcp) %>%
@@ -66,7 +65,7 @@ weather_df %>%
 
 
 ### Maximum Temperature Overtime per Weather Station
-```{r}
+```{r, echo=FALSE}
 weather_df_plot = weather_df %>%
   ggplot(aes(x = date, y = tmax, color = name)) + 
   geom_point(alpha = .5) +

@@ -9,5 +9,8 @@ output:
 
 # Welcome to Malvika's Website Landing Page!
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
-In this website I have included an outline of my academic and professional experience, as well as a dashboard
+In this website I have included an outline of my academic and professional experience, as well as a dashboard of weather data from the NOAA National Climatic Data Center
+
+
+![](https://media3.giphy.com/media/1vZaqTbmvAj2S9CeZD/giphy.gif?cid=6c09b9528b56ba779b11e287311da3652a31843fc732207f&rid=giphy.gif&ct=s)
+
