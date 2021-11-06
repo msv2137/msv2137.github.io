@@ -34,14 +34,7 @@ weather_df =
 View(weather_df)
 ```
 
-
-```{r}
-weather_df %>% 
-  ggplot(aes(x = tmin, y = tmax)) + 
-  geom_point(aes(color = name), alpha = .5)
-```
-
-
+### Daily Recorded Precipitation by Weather Station
 ```{r}
 weather_df %>%
  mutate(name = forcats::fct_relevel(name, c("Waikiki_HA", "CentralPark_NY", "Waterhole_WA"))) %>%
@@ -49,7 +42,7 @@ weather_df %>%
   layout(title = "Daily Recorded Precipitation by Weather Station" , xaxis = list(title = "Location"), yaxis = list(title = "Precipitation (cm)"))
 ```
 
-
+### Total Monthly Precipitation in Waikiki
 ```{r}
 weather_df %>%
   separate(date, into = c("year", "month", "day"), sep = "-") %>%
@@ -60,16 +53,16 @@ weather_df %>%
   summarise(total_precip = sum(prcp)) %>%
   do(p=plot_ly(., x = ~month, y = ~total_precip, color = ~month, type = "bar", colors = "magma")) %>%
   subplot(nrows = 1, shareX = TRUE, shareY = TRUE) %>%
-  layout(title = "Total Precipitation per Month in Waikiki, HI", xaxis = list(title = "Month"), yaxis = list(title = "Precipitation (cm)"))
+  layout(title = "Total Monthly Precipitation in Waikiki, HI", xaxis = list(title = "Month"), yaxis = list(title = "Precipitation (cm)"))
 ```
-
+### Maximum Temperature Overtime per Weather Station
 ```{r}
 weather_df_plot = weather_df %>%
   ggplot(aes(x = date, y = tmax, color = name)) + 
   geom_point(alpha = .5) +
   geom_smooth(se = FALSE) + 
   facet_wrap(. ~ name) +
-  labs(title = "Maximum Temperature Over The Year Per Weather Station", 
+  labs(title = "Maximum Temperature Overtime per Weather Station", 
        x = "Date", 
        y = "Maximum Daily Temperature (C)") + 
   scale_color_discrete(name = "Weather Station") +
